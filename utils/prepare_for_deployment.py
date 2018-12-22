@@ -92,7 +92,8 @@ def prepare_deploy():
         print("\n{}Choose checkpoint [1-{}], quit or empty for default ({}):{} ".format(colorama.Fore.GREEN, index + 1,
                                                                                         default_index,
                                                                                         colorama.Fore.RESET), end='')
-        choice = input()
+        # choice = input()
+        choice = None
 
         # Empty - default checkpoint
         if not choice:
