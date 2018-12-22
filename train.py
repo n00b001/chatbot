@@ -1,8 +1,10 @@
-import sys
-import os
 import argparse
-from setup.settings import hparams, preprocessing
 import math
+import os
+import sys
+
+from setup.settings import hparams, preprocessing
+
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/nmt")
 from nmt import nmt
@@ -15,7 +17,6 @@ colorama.init()
 
 
 def train():
-
     print('\n\n{}Training model...{}\n'.format(colorama.Fore.GREEN, colorama.Fore.RESET))
 
     # Custom epoch training and decaying
@@ -37,11 +38,13 @@ def train():
 
             # Check if model already passed that epoch
             if epoch < initial_epoch:
-                print('{}Epoch: {}, learning rate: {} - already passed{}'.format(colorama.Fore.GREEN, epoch + 1, learning_rate, colorama.Fore.RESET))
+                print('{}Epoch: {}, learning rate: {} - already passed{}'.format(colorama.Fore.GREEN, epoch + 1,
+                                                                                 learning_rate, colorama.Fore.RESET))
                 continue
 
             # Calculate new number of training steps - up to the end of current epoch
-            num_train_steps = math.ceil((epoch + 1) * corpus_size / (hparams['batch_size'] if 'batch_size' in hparams else 128))
+            num_train_steps = math.ceil(
+                (epoch + 1) * corpus_size / (hparams['batch_size'] if 'batch_size' in hparams else 128))
             print("\n{}Epoch: {}, steps per epoch: {}, epoch ends at {} steps, learning rate: {} - training{}\n".format(
                 colorama.Fore.GREEN,
                 epoch + 1,
@@ -79,7 +82,7 @@ def nmt_train():
     nmt.add_arguments(nmt_parser)
 
     # But we have to hack settings from our config in there instead of commandline options
-    nmt.FLAGS, unparsed = nmt_parser.parse_known_args(['--'+k+'='+str(v) for k,v in hparams.items()])
+    nmt.FLAGS, unparsed = nmt_parser.parse_known_args(['--' + k + '=' + str(v) for k, v in hparams.items()])
 
     # Add custom summary function (hook)
     nmt.summary_callback = custom_summary
@@ -87,4 +90,6 @@ def nmt_train():
     # And now we can run TF with modified arguments
     tf.app.run(main=nmt.main, argv=[os.getcwd() + '\nmt\nmt\nmt.py'] + unparsed)
 
-train()
+
+if __name__ == '__main__':
+    train()

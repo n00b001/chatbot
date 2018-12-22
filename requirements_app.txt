@@ -1,0 +1,8 @@
+tqdm
+colorama
+regex
+python-Levenshtein
+requests
+Flask==0.12.2
+gunicorn==19.7.1
+tensorflow==1.4.0
