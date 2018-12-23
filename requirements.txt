@@ -5,3 +5,4 @@ regex
 python-Levenshtein
 requests
 sh
+google-cloud-bigquery
