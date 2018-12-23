@@ -5,5 +5,6 @@ regex
 python-Levenshtein
 requests
 sh
+requests
 google-cloud-bigquery
 pandas
