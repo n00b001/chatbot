@@ -6,3 +6,4 @@ python-Levenshtein
 requests
 sh
 google-cloud-bigquery
+pandas

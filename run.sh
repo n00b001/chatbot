@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+set -e
+# Any subsequent(*) commands which fail will cause the shell script to exit immediately
+
 echo "Installing dependencies..."
 pip3 install -r requirements.txt
 
 echo "Downloading data..."
-export GOOGLE_APPLICATION_CREDENTIALS="g_credentials.json"
+rm new_data/train.from
+rm new_data/train.to
 python3 pull_data.py
 
 echo "Removing Old Files..."
