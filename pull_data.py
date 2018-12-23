@@ -28,8 +28,8 @@ def main():
     y = y.replace("\r", " <returnchar> ")
     y = y.replace('"', "'")
 
-    x.to_csv("nmt-chatbot/new_data/train.from", header=None, index=None, sep=' ', quoting=csv.QUOTE_MINIMAL)
-    y.to_csv("nmt-chatbot/new_data/train.to", header=None, index=None, sep=' ', quoting=csv.QUOTE_MINIMAL)
+    x.to_csv("new_data/train.from", header=None, index=None, sep=' ', quoting=csv.QUOTE_MINIMAL)
+    y.to_csv("new_data/train.to", header=None, index=None, sep=' ', quoting=csv.QUOTE_MINIMAL)
 
 
 if __name__ == '__main__':
