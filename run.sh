@@ -29,11 +29,12 @@ python3 prepare_for_deployment.py
 
 echo "Copying Files..."
 cd ..
+cp main_app.py _deployment/main.py
 cp app.yaml _deployment/app.yaml
 cp requirements_app.txt _deployment/requirements.txt
-cd _deployment
 
 echo "Deploying..."
+cd _deployment
 gcloud app deploy -q
 
 echo "Done!"
