@@ -15,15 +15,14 @@
 
 # [START app]
 import logging
-import platform
 
-import tensorflow as tf
 from flask import Flask, request
 
 import inference
 
 app = Flask(__name__)
 score_thresh = 5.0
+
 
 @app.route('/')
 def run():
@@ -36,7 +35,7 @@ def run():
     best_score = data["best_score"]
     best_index = data["best_index"]
     best_phrase = data["answers"][best_index]
-    print("best_score; {}\nbest_phrase: {}".format(best_score,best_phrase))
+    print("best_score; {}\nbest_phrase: {}".format(best_score, best_phrase))
     if best_score > score_thresh:
         return str(best_phrase)
     return ""
