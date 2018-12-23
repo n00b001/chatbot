@@ -34,6 +34,8 @@ cp app.yaml _deployment/app.yaml
 cp requirements_app.txt _deployment/requirements.txt
 
 echo "Deploying..."
+gcloud auth activate-service-account --key-file g_credentials.json
+gcloud config set project still-gravity-200620
 cd _deployment
 gcloud app deploy -q
 
