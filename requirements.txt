@@ -5,6 +5,6 @@ regex
 python-Levenshtein
 requests
 sh
-requests
+google-resumable-media[requests]
 google-cloud-bigquery
 pandas
