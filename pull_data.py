@@ -12,7 +12,8 @@ def main():
     query = """
             SELECT child_body, parent_body
             FROM `still-gravity-200620.comment_pairs.all_comment_pairs_10` 
-            limit 20
+            WHERE child_body NOT LIKE '%http%'
+            AND parent_body NOT LIKE '%http%'
             """
     df = client.query(query).to_dataframe()
     print("Length of dataframe: ")

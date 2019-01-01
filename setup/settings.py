@@ -25,7 +25,7 @@ preprocessing = {
     'samples': -1,
 
     # Vocab max size
-    'vocab_size': 15000,
+    'vocab_size': 30000,
 
     # Whether to use joined (common) vocab for both source and destination
     # (should work well with BPE/WPM-like tokenization for our chatbot - english-english translation)
