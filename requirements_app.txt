@@ -3,6 +3,6 @@ colorama
 regex
 python-Levenshtein
 requests
-Flask==0.12.2
+Flask==1.0
 gunicorn==19.7.1
 tensorflow==1.15.2
